@@ -17,16 +17,56 @@ Resources:
       Architectures:
         - x86_64
       Events:
-        Get:
+        HealthGet:
           Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
           Properties:
             Path: /health/
             Method: get
-        Post:
+        HealthPost:
           Type: Api
           Properties:
             Path: /health/{type}/
             Method: post
+        GetClient:
+          Type: Api
+          Properties:
+            Path: /user/clients/{id}/
+            Method: get
+        ListClients:
+          Type: Api
+          Properties:
+            Path: /user/clients/
+            Method: get
+        CreateClient:
+          Type: Api
+          Properties:
+            Path: /user/clients/
+            Method: post
+        DeleteClients:
+          Type: Api
+          Properties:
+            Path: /user/clients/{id}/
+            Method: delete
+        GetUser:
+          Type: Api
+          Properties:
+            Path: /user/{id}/
+            Method: get
+        ListUsers:
+          Type: Api
+          Properties:
+            Path: /user/
+            Method: get
+        CreatUser:
+          Type: Api
+          Properties:
+            Path: /user/
+            Method: post
+        DeleteUser:
+          Type: Api
+          Properties:
+            Path: /user/{id}/
+            Method: delete
     Metadata: # Manage esbuild properties
       BuildMethod: esbuild
       BuildProperties:
