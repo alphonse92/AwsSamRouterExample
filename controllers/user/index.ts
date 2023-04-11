@@ -4,7 +4,7 @@ import Route from 'simple-lambda-api-router/dist/decorators/Route';
 class UserController {
   @Route('get', '/user/{id}/')
   async getUser(event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> {
-    return { statusCode: 200, body: 'getting user' };
+    return { statusCode: 200, body: JSON.stringify(event) };
   }
 
   @Route('get', '/user/')
