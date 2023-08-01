@@ -12,11 +12,11 @@ const before = async (request: any) => {
   const { event } = request;
   const { pathParameters } = event;
   const { type } = pathParameters;
-  request.AuditTrail = new AuditTrail(type ?? 'noname');
+  request.internal.AuditTrail = new AuditTrail(type ?? 'noname');
 };
 
 const after = async (request: any) => {
-  request.AuditTrail?.sayHello();
+  request?.internal?.AuditTrail?.sayHello();
 };
 
 const onError = async (request: any) => {
